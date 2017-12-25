@@ -7,7 +7,7 @@ import lombok.Data;
  */
 @Data
 public class People {
-    private String name;
+    private String name = "joy";
     private int age;
     private String address;
     private String sex;
