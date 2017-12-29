@@ -14,6 +14,5 @@ public class Test {
         Mirror peopleMirror = Mirror.me(people);
         peopleMirror.invoke(people,"setName","tom");
         System.out.println(peopleMirror.invoke(people,"getName"));
-
     }
 }

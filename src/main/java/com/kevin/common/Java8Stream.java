@@ -5,8 +5,10 @@ import com.kevin.common.domain.People;
 import lombok.Data;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -31,20 +33,34 @@ public class Java8Stream {
         return peoples.stream().filter(o -> StringUtils.equals(sex,o.getSex())).collect(Collectors.toList());
     }
 
+    public Map<String,Optional<People>> getMaxAgeGroupBySex(List<People> peoples){
+        return  peoples.parallelStream().collect(Collectors.groupingBy(People::getSex,Collectors.maxBy(Comparator.comparing(People::getAge))));
+    }
+
 
     public static void main(String[] args) {
         Java8Stream j8 = new Java8Stream();
         List list = Lists.newArrayList();
-        for (int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             People people = new People();
-            people.setName("joy"+i);
-            people.setSex(""+i);
+            people.setName("joy" + i);
+            if (i % 2 == 0) {
+                people.setSex("" + 0);
+            } else {
+                people.setSex("" + 1);
+            }
+
+
+            people.setAge(i);
             list.add(people);
         }
 
         System.out.println(j8.getPeopleNames(list));
 
         System.out.println(j8.chooseSexPeoples("1",list));
+
+        System.out.println(j8.getMaxAgeGroupBySex(list));
+
 
     }
 }
