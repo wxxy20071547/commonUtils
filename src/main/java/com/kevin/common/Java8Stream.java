@@ -17,16 +17,12 @@ import java.util.stream.Collectors;
 @Data
 public class Java8Stream {
 
-
-
     public List<String> getPeopleNames(List<People> peopleList){
         return peopleList.stream().map(People::getName).collect(Collectors.toList());
-
     }
 
     public Map<String,List<People>> groupBySex(List<People> peoples){
         return peoples.stream().collect(Collectors.groupingBy(People::getSex));
-
     }
 
     public List<People> chooseSexPeoples(String sex,List<People> peoples){
@@ -34,9 +30,8 @@ public class Java8Stream {
     }
 
     public Map<String,Optional<People>> getMaxAgeGroupBySex(List<People> peoples){
-        return  peoples.parallelStream().collect(Collectors.groupingBy(People::getSex,Collectors.maxBy(Comparator.comparing(People::getAge))));
+        return peoples.parallelStream().collect(Collectors.groupingBy(People::getSex, Collectors.maxBy(Comparator.comparing(People::getAge))));
     }
-
 
     public static void main(String[] args) {
         Java8Stream j8 = new Java8Stream();
@@ -49,8 +44,6 @@ public class Java8Stream {
             } else {
                 people.setSex("" + 1);
             }
-
-
             people.setAge(i);
             list.add(people);
         }
@@ -59,8 +52,8 @@ public class Java8Stream {
 
         System.out.println(j8.chooseSexPeoples("1",list));
 
+        System.out.println(j8.groupBySex(list));
+
         System.out.println(j8.getMaxAgeGroupBySex(list));
-
-
     }
 }
