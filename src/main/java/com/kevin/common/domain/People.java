@@ -12,11 +12,12 @@ import java.text.MessageFormat;
 @Data
 @ToString
 public class People {
-    private String name = "joy";
+    private String name;
     private int age;
     private int money;
     private String address;
     private String sex;
+    private int total;
 
     public String doSomething(String name,String sex, int age){
         return MessageFormat.format("a people name :{0},sex :{1},age is {2}", name, sex, age);
@@ -27,8 +28,13 @@ public class People {
             this.sex = p.getSex();
         }
 
+        if (StringUtils.isBlank(name)){
+            this.name = p.name;
+        }
+
         this.age += p.getAge();
         this.money += p.getMoney();
+        this.total += p.getAge() + p.getMoney();
         return this;
     }
 }

@@ -34,7 +34,7 @@ public class Java8Stream {
     }
 
     public List<People> getSumAmountGroupBySex(List<People> list){
-        List<People> peoples = Lists.newArrayList();
+         List<People> peoples = Lists.newArrayList();
          list.stream().collect(Collectors.groupingBy(People::getSex))
                     .forEach((name,fooListByName)->{
                         People bar = new People();
@@ -66,12 +66,12 @@ public class Java8Stream {
 
         System.out.println(j8.getSumAmountGroupBySex(list));
 
-        System.out.println(j8.getPeopleNames(list));
-
-        System.out.println(j8.chooseSexPeoples("1",list));
-
-        System.out.println(j8.groupBySex(list));
-
-        System.out.println(j8.getMaxAgeGroupBySex(list));
+//        System.out.println(j8.getPeopleNames(list));
+//
+//        System.out.println(j8.chooseSexPeoples("1",list));
+//
+//        System.out.println(j8.groupBySex(list));
+//
+//        System.out.println(j8.getMaxAgeGroupBySex(list));
     }
 }
