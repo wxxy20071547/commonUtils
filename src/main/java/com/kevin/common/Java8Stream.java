@@ -33,10 +33,24 @@ public class Java8Stream {
         return peoples.parallelStream().collect(Collectors.groupingBy(People::getSex, Collectors.maxBy(Comparator.comparing(People::getAge))));
     }
 
+    public List<People> getSumAmountGroupBySex(List<People> list){
+        List<People> peoples = Lists.newArrayList();
+         list.stream().collect(Collectors.groupingBy(People::getSex))
+                    .forEach((name,fooListByName)->{
+                        People bar = new People();
+                        bar = fooListByName
+                                .stream()
+                                .reduce(bar,(u,t)->u.sum(t),(u,t)->u);
+                        System.out.println(bar.toString());
+                        peoples.add(bar);
+                    });
+         return peoples;
+    }
+
     public static void main(String[] args) {
         Java8Stream j8 = new Java8Stream();
-        List list = Lists.newArrayList();
-        for (int i = 0; i < 10; i++) {
+        List<People> list = Lists.newArrayList();
+        for (int i = 0; i < 4; i++) {
             People people = new People();
             people.setName("joy" + i);
             if (i % 2 == 0) {
@@ -45,8 +59,12 @@ public class Java8Stream {
                 people.setSex("" + 1);
             }
             people.setAge(i);
+            people.setMoney(i *2);
             list.add(people);
         }
+        System.out.println(list);
+
+        System.out.println(j8.getSumAmountGroupBySex(list));
 
         System.out.println(j8.getPeopleNames(list));
 
