@@ -33,6 +33,11 @@ public class Java8Stream {
         return peoples.parallelStream().collect(Collectors.groupingBy(People::getSex, Collectors.maxBy(Comparator.comparing(People::getAge))));
     }
 
+    /**
+     * 先分组再累加某些属性
+     * @param list
+     * @return
+     */
     public List<People> getSumAmountGroupBySex(List<People> list){
          List<People> peoples = Lists.newArrayList();
          list.stream().collect(Collectors.groupingBy(People::getSex))
