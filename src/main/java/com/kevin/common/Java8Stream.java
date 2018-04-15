@@ -34,6 +34,15 @@ public class Java8Stream {
     }
 
     /**
+     *  option's simple use
+     * @param people
+     * @return
+     */
+    public String getSex(People people){
+        return Optional.ofNullable(people).map(p ->p.getSex()).orElse(null);
+    }
+
+    /**
      * 先分组再累加某些属性
      * @param list
      * @return
