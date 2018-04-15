@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.ToString;
 import org.apache.commons.lang.StringUtils;
 
+import java.io.Serializable;
 import java.text.MessageFormat;
 
 /**
@@ -11,7 +12,7 @@ import java.text.MessageFormat;
  */
 @Data
 @ToString
-public class People {
+public class People implements Serializable{
     private String name;
     private int age;
     private int money;
