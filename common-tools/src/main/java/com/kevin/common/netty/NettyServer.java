@@ -53,6 +53,7 @@ public class NettyServer {
         } finally {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
+
         }
     }
 

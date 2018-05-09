@@ -7,6 +7,7 @@ import com.kevin.common.rpc.service.impl.AbstractHelloService;
 import lombok.Synchronized;
 import org.nutz.lang.Mirror;
 
+import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -26,10 +27,6 @@ public class Test {
         Mirror peopleMirror = Mirror.me(people);
         peopleMirror.invoke(people,"setName","tom");
         System.out.println(peopleMirror.invoke(people,"getName"));
-
-
-
-
 
     }
 }
