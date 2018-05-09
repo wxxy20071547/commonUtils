@@ -11,15 +11,15 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  * ，AtomicInteger会成功执行CAS操作，而加上版本戳的AtomicStampedReference对于ABA问题会执行CAS失败：
  */
 public class ABA {
-    private static AtomicInteger atomicInt = new AtomicInteger(100);
+    private static AtomicInteger atomicInt = new AtomicInteger(1);
     private static AtomicStampedReference atomicStampedRef = new AtomicStampedReference(100, 0);
 
     public static void main(String[] args) throws InterruptedException {
         Thread intT1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                atomicInt.compareAndSet(100, 101);
-                atomicInt.compareAndSet(101, 100);
+                atomicInt.compareAndSet(1, 2);
+                atomicInt.compareAndSet(2, 1);
             }
         });
 
@@ -30,7 +30,7 @@ public class ABA {
                     TimeUnit.SECONDS.sleep(1);
                 } catch (InterruptedException e) {
                 }
-                boolean c3 = atomicInt.compareAndSet(100, 101);
+                boolean c3 = atomicInt.compareAndSet(1, 2);
                 System.out.println(c3); // true
             }
         });
