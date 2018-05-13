@@ -1,4 +1,4 @@
-package com.kevin.common.proxy.service;
+package com.kevin.common.proxy;
 
 import java.lang.reflect.Method;
 

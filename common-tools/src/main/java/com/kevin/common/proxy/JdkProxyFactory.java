@@ -1,7 +1,5 @@
 package com.kevin.common.proxy;
 
-import com.kevin.common.proxy.service.AbstractProxyFactory;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

@@ -1,6 +1,5 @@
 package com.kevin.common.proxy;
 
-import com.kevin.common.proxy.service.AbstractProxyFactory;
 import net.sf.cglib.proxy.Callback;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
