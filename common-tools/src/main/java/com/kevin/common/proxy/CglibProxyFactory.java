@@ -11,15 +11,15 @@ public class CglibProxyFactory extends AbstractProxyFactory implements MethodInt
     private Object targetObject;
 
     public Object createProxyIntance(Object targetObject) {
-       this.targetObject = targetObject;
+        this.targetObject = targetObject;
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(this.targetObject.getClass());
         enhancer.setCallback((Callback) this);
-        return  enhancer.create();
+        return enhancer.create();
     }
 
     @Override
     public Object intercept(Object proxy, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-       return invoke(method,this.targetObject,objects);
+        return invoke(method, this.targetObject, objects);
     }
 }
