@@ -1,6 +1,7 @@
 package com.kevin.common;
 
 
+import com.google.common.util.concurrent.RateLimiter;
 import com.kevin.common.domain.People;
 import com.kevin.common.rpc.service.HelloService;
 import com.kevin.common.rpc.service.impl.AbstractHelloService;
@@ -27,6 +28,7 @@ public class Test {
         Mirror peopleMirror = Mirror.me(people);
         peopleMirror.invoke(people,"setName","tom");
         System.out.println(peopleMirror.invoke(people,"getName"));
+
 
     }
 }
