@@ -2,7 +2,7 @@ package com.kevin.common.proxy;
 
 import com.kevin.common.proxy.impl.PeopleServiceImpl;
 import com.kevin.common.proxy.service.PeopleService;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 public class ProxyTest {
     @Test
