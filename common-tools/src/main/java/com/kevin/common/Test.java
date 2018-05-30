@@ -1,6 +1,8 @@
 package com.kevin.common;
 
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.util.concurrent.RateLimiter;
 import com.kevin.common.domain.People;
 import com.kevin.common.rpc.service.HelloService;
@@ -8,6 +10,10 @@ import com.kevin.common.rpc.service.impl.AbstractHelloService;
 import lombok.Synchronized;
 import org.nutz.lang.Mirror;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicStampedReference;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -30,5 +36,13 @@ public class Test {
         System.out.println(peopleMirror.invoke(people,"getName"));
 
 
+        List<String> list = Lists.newArrayList();
+
+
+
+
+        Map<String,Object> map = new HashMap<>();
+
+        map.put("1",222);
     }
 }
