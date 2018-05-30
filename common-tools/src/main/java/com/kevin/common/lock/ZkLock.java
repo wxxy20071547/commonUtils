@@ -16,8 +16,8 @@ import java.util.concurrent.Executors;
 
 public class ZkLock {
 
-    private String zkQurom = "192.168.2.1:2181";
-    private String lockName = "/mylock";
+    private String zkQurom = "10.42.60.140:2181";
+    private String lockName = "/kevinLock";
     private String lockZnode = null;
     private ZooKeeper zk;
 
@@ -53,7 +53,7 @@ public class ZkLock {
         String path = null;
         ensureRootPath();
         try {
-            path = zk.create(lockName + "/mylock_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+            path = zk.create(lockName + "/kevinLock_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
             lockZnode = path;
             List<String> minPath = zk.getChildren(lockName, false);
             System.out.println(minPath);
