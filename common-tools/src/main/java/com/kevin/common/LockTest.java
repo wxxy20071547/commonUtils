@@ -1,6 +1,6 @@
 package com.kevin.common;
 
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -10,6 +10,15 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockTest {
 
     public static void main(String[] args) {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        executorService.submit(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("thread="+ Thread.currentThread().getName());
+            }
+        });
+
         //获取公平锁
         ReentrantLock lock = new ReentrantLock(true);
 
