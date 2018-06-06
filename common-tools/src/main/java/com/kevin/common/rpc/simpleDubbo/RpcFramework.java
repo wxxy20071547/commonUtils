@@ -1,4 +1,4 @@
-package com.kevin.common.rpc;
+package com.kevin.common.rpc.simpleDubbo;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationHandler;

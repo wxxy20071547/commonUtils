@@ -1,4 +1,4 @@
-package com.kevin.common.rpc.service;
+package com.kevin.common.rpc.simpleDubbo.service;
 
 /**
  * Created by kevin on 2018/4/10.

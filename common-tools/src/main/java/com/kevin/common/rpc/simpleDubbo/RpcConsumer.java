@@ -1,6 +1,5 @@
-package com.kevin.common.rpc;
-
-import com.kevin.common.rpc.service.HelloService;
+package com.kevin.common.rpc.simpleDubbo;
+import com.kevin.common.rpc.simpleDubbo.service.HelloService;
 
 /**
  * Created by kevin on 2018/4/10.
