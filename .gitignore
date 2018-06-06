@@ -1,17 +1,17 @@
-# Maven #
-target/
-
-# IDEA #
-.idea/
-*.iml
-
-# Eclipse #
-.settings/
+*.lst
+.git
 .classpath
 .project
-
-# logs file #
-logs/
-
-# database file #
-tale.db
+.settings
+.idea
+*.iml
+*.ipr
+*.iws
+*.ids
+*.class
+.DS_Store
+/target
+/logs
+*.log*
+/disconf
+*/target/*

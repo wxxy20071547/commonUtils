@@ -11,10 +11,6 @@
 
     <artifactId>dubbo-demo</artifactId>
 
-    <properties>
-        <spring.version>4.2.4.RELEASE</spring.version>
-    </properties>
-
     <modules>
         <module>dubbo-demo-api</module>
         <module>dubbo-demo-provider</module>

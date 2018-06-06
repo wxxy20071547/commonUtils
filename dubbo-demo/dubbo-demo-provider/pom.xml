@@ -28,6 +28,7 @@
     <description>The demo provider module of dubbo project</description>
     <properties>
         <skip_maven_deploy>true</skip_maven_deploy>
+        <spring.version>4.2.4.RELEASE</spring.version>
     </properties>
 
     <dependencies>
