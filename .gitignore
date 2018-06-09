@@ -5,6 +5,7 @@
 .settings
 .idea
 *.iml
+commonUtils.iml
 *.ipr
 *.iws
 *.ids
