@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.kevin.common;
+package com.kevin.common.utils;
 
 /**
  * create by kevin

@@ -1,4 +1,4 @@
-package com.kevin.common;
+package com.kevin.common.utils;
 
 import java.util.Calendar;
 import java.util.Date;
