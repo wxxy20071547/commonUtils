@@ -26,7 +26,7 @@ public class Test {
 
         List<String> list = Lists.newArrayList();
 
-
+        System.out.println(list);
 
 
         Map<String,Object> map = new HashMap<>();
