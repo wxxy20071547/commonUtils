@@ -72,13 +72,14 @@ public class Java8Stream {
             } else {
                 people.setSex("" + 1);
             }
-            people.setAge(i);
+            people.setAge(4-i);
             people.setMoney(i *2);
             list.add(people);
         }
         System.out.println(list);
+        list.sort(Comparator.comparing(People::getAge));
 
-        System.out.println(j8.getSumAmountGroupBySex(list));
+        System.out.println(list);
 
 //        System.out.println(j8.getPeopleNames(list));
 //

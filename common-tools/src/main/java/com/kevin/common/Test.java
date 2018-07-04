@@ -3,13 +3,12 @@ package com.kevin.common;
 
 import com.google.common.collect.Lists;
 
+import com.google.common.collect.Maps;
 import com.kevin.common.domain.People;
 
 import org.nutz.lang.Mirror;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -24,13 +23,13 @@ public class Test {
         System.out.println(peopleMirror.invoke(people,"getName"));
 
 
-        List<String> list = Lists.newArrayList();
-
-
-
-
-        Map<String,Object> map = new HashMap<>();
-
-        map.put("1",222);
+        //按访问顺序
+        Map linkMap = new LinkedHashMap(16,0.75f,true);
+        for (int i = 0; i < 10; i++) {
+            linkMap.put(String.valueOf(i),i);
+        }
+        linkMap.get("4");
+        linkMap.get("1");
+        System.out.println(linkMap);
     }
 }
