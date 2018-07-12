@@ -23,7 +23,6 @@ public class Test {
         System.out.println(peopleMirror.invoke(people,"getName"));
 
 
-
         //按访问顺序
         Map linkMap = new LinkedHashMap(16,0.75f,true);
         for (int i = 0; i < 10; i++) {
