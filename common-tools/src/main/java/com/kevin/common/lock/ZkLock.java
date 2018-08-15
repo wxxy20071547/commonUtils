@@ -39,7 +39,7 @@ public class ZkLock {
     private void ensureRootPath() {
         try {
             if (zk.exists(lockName, true) == null) {
-                zk.create(lockName, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+                zk.create(lockName, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);//根目录是持久类型
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class ZkLock {
         String path = null;
         ensureRootPath();
         try {
-            path = zk.create(lockName + "/kevinLock_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+            path = zk.create(lockName + "/kevinLock_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);//子目录是临时顺序型
             lockZnode = path;
             List<String> minPath = zk.getChildren(lockName, false);
             System.out.println(minPath);
