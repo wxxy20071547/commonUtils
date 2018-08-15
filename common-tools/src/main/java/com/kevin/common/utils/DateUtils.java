@@ -1,13 +1,76 @@
 package com.kevin.common.utils;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import org.apache.commons.lang.StringUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by kevin on 2017/11/29.
  */
 public class DateUtils {
+
+    private final static String  FULL_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+
+    private final static String  PART_FORMAT_PATTERN = "yyyy-MM-dd";
+
+
+    public static String seconds2Date(Integer seconds) {
+        return seconds2Date(seconds,null);
+    }
+
+    public static String seconds2Date(Integer seconds , String formatPattern) {
+        if (seconds == null) {
+            return "";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(Optional.ofNullable(formatPattern).orElse(FULL_FORMAT_PATTERN));
+
+        return sdf.format(new Date(seconds * 1000L));
+    }
+
+    public static String formatDateTime(Integer totalSeconds) {
+        if (Objects.isNull(totalSeconds)){
+            return "";
+        }
+        StringBuffer dateTimes = new StringBuffer();
+
+        int hours = (totalSeconds % (60 * 60 * 24)) / (60 * 60);
+        int minutes = (totalSeconds % (60 * 60)) / 60;
+        int seconds = totalSeconds % 60;
+        if (hours > 0) {
+            dateTimes.append(hours + "小时");
+        }
+        if (minutes > 0) {
+            dateTimes.append(minutes + "分钟");
+
+        }
+        if (seconds > 0) {
+            dateTimes.append(seconds + "秒");
+        }
+
+        return dateTimes.toString();
+    }
+
+    public static Number format2DateTime(String dateStr) {
+        return format2DateTime(dateStr, null);
+    }
+
+    public static Number format2DateTime(String dateStr, String formatPattern) {
+        if (StringUtils.isBlank(dateStr)) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(Optional.ofNullable(formatPattern).orElse(FULL_FORMAT_PATTERN));
+        try {
+            Date date = sdf.parse(dateStr);
+            return date.getTime() / 1000L;
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return null;
+
+    }
+
 
     public static int getCurrentHours(){
         Calendar calendar  = Calendar.getInstance();
