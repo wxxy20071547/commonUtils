@@ -9,7 +9,9 @@ import com.kevin.common.domain.People;
 import org.nutz.lang.Mirror;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.locks.ReentrantLock;
 
 
 /**
@@ -18,6 +20,9 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class Test {
 
     public static void main(String[] args) {
+
+        Map cMap = Maps.newHashMap();
+        cMap.put(null,null);
         People people = new People();
         Mirror peopleMirror = Mirror.me(people);
         peopleMirror.invoke(people, "setName", "tom");
@@ -37,6 +42,18 @@ public class Test {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        ReentrantLock reentrantLock = new ReentrantLock();
+        ConcurrentHashMap map = new ConcurrentHashMap();
+
+
+
+        for (int i,j,k;;){
+
+        }
+
+
+
+
 
     }
 
