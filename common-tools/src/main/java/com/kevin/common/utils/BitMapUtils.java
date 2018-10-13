@@ -73,11 +73,11 @@ public class BitMapUtils {
 
         System.out.println("插入7成功");
 
-        boolean isexsit = bitmap.contain(70);
+        boolean isexsit = bitmap.contain(7);
         System.out.println("7是否存在:" + isexsit);
 
         bitmap.clear(7);
-        isexsit = bitmap.contain(70);
+        isexsit = bitmap.contain(7);
         System.out.println("7是否存在:" + isexsit);
 
 
