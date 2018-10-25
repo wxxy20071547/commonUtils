@@ -20,11 +20,11 @@ public class LockTest {
         });
 
         //获取公平锁
-        ReentrantLock lock = new ReentrantLock(true);
+        ReentrantLock lock = new ReentrantLock(true);//ReentrantLock默认是不公平
 
         try{
             lock.lock();
-            lock.tryLock();
+            lock.tryLock();//没有超时间，底层还是不公平是实现
             lock.tryLock(500, TimeUnit.SECONDS);
             lock.lockInterruptibly();
             lock.unlock();

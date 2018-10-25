@@ -33,6 +33,10 @@ public class Java8Stream {
         return peoples.parallelStream().collect(Collectors.groupingBy(People::getSex, Collectors.maxBy(Comparator.comparing(People::getAge))));
     }
 
+    public int getTotalAge(List<People> peoples){
+        return peoples.stream().mapToInt(People::getAge).sum();
+    }
+
     /**
      *  option's simple use
      * @param people
@@ -80,6 +84,7 @@ public class Java8Stream {
         list.sort(Comparator.comparing(People::getAge));
 
         System.out.println(list);
+        System.out.println(j8.getTotalAge(list));
 
 //        System.out.println(j8.getPeopleNames(list));
 //
