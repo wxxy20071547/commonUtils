@@ -17,52 +17,54 @@ import java.util.stream.Collectors;
 @Data
 public class Java8Stream {
 
-    public List<String> getPeopleNames(List<People> peopleList){
+    public List<String> getPeopleNames(List<People> peopleList) {
         return peopleList.stream().map(People::getName).collect(Collectors.toList());
     }
 
-    public Map<String,List<People>> groupBySex(List<People> peoples){
+    public Map<String, List<People>> groupBySex(List<People> peoples) {
         return peoples.stream().collect(Collectors.groupingBy(People::getSex));
     }
 
-    public List<People> chooseSexPeoples(String sex,List<People> peoples){
-        return peoples.stream().filter(o -> StringUtils.equals(sex,o.getSex())).collect(Collectors.toList());
+    public List<People> chooseSexPeoples(String sex, List<People> peoples) {
+        return peoples.stream().filter(o -> StringUtils.equals(sex, o.getSex())).collect(Collectors.toList());
     }
 
-    public Map<String,Optional<People>> getMaxAgeGroupBySex(List<People> peoples){
+    public Map<String, Optional<People>> getMaxAgeGroupBySex(List<People> peoples) {
         return peoples.parallelStream().collect(Collectors.groupingBy(People::getSex, Collectors.maxBy(Comparator.comparing(People::getAge))));
     }
 
-    public int getTotalAge(List<People> peoples){
+    public int getTotalAge(List<People> peoples) {
         return peoples.stream().mapToInt(People::getAge).sum();
     }
 
     /**
-     *  option's simple use
+     * option's simple use
+     *
      * @param people
      * @return
      */
-    public String getSex(People people){
-        return Optional.ofNullable(people).map(p ->p.getSex()).orElse(null);
+    public String getSex(People people) {
+        return Optional.ofNullable(people).map(p -> p.getSex()).orElse(null);
     }
 
     /**
      * 先分组再累加某些属性
+     *
      * @param list
      * @return
      */
-    public List<People> getSumAmountGroupBySex(List<People> list){
-         List<People> peoples = Lists.newArrayList();
-         list.stream().collect(Collectors.groupingBy(People::getSex))
-                    .forEach((name,fooListByName)->{
-                        People bar = new People();
-                        bar = fooListByName
-                                .stream()
-                                .reduce(bar,(u,t)->u.sum(t),(u,t)->u);
-                        System.out.println(bar.toString());
-                        peoples.add(bar);
-                    });
-         return peoples;
+    public List<People> getSumAmountGroupBySex(List<People> list) {
+        List<People> peoples = Lists.newArrayList();
+        list.stream().collect(Collectors.groupingBy(People::getSex))
+                .forEach((name, fooListByName) -> {
+                    People bar = new People();
+                    bar = fooListByName
+                            .stream()
+                            .reduce(bar, (u, t) -> u.sum(t), (u, t) -> u);
+                    System.out.println(bar.toString());
+                    peoples.add(bar);
+                });
+        return peoples;
     }
 
     public static void main(String[] args) {
@@ -76,8 +78,8 @@ public class Java8Stream {
             } else {
                 people.setSex("" + 1);
             }
-            people.setAge(4-i);
-            people.setMoney(i *2);
+            people.setAge(4 - i);
+            people.setMoney(i * 2);
             list.add(people);
         }
         System.out.println(list);
