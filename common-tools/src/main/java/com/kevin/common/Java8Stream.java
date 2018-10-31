@@ -68,6 +68,11 @@ public class Java8Stream {
     }
 
     public static void main(String[] args) {
+        Runnable r1 = () -> {
+            System.out.println("say i'm a runnable");
+        };
+
+        r1.run();
         Java8Stream j8 = new Java8Stream();
         List<People> list = Lists.newArrayList();
         for (int i = 0; i < 4; i++) {

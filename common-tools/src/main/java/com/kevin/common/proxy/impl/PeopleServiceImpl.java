@@ -7,4 +7,5 @@ public class PeopleServiceImpl implements PeopleService{
     public void say(String what) {
         System.out.println("hello , say:" + what);
     }
+
 }
