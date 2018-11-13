@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class MatchStrategy {
+
     // 运营商 ， SDK版本，省份
     private int[][] channelInitArray = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}, {1, 0, 0}, {0, 1, 1}, {0, 1, 0}, {0, 0, 1},
             {0, 0, 0}};
@@ -40,4 +41,6 @@ public class MatchStrategy {
     private String getChannelInitInfoKey(String providerKey, String sdkIntVersionKey, String provinceIdKey) {
         return providerKey + "_" + sdkIntVersionKey + "_" + provinceIdKey;
     }
+
+
 }
