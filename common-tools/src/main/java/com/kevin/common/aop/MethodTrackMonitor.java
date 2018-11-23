@@ -87,7 +87,7 @@ public class MethodTrackMonitor {
         return spaces.toString();
     }
 
-    @Pointcut("execution(* com.kuaihuoyun.kevin..*.*(..)) ")
+    @Pointcut("execution(* com.kevin..*.*(..)) ")
     public void profilingMethodsCall() {
     }
 }
