@@ -67,6 +67,17 @@ public class Java8Stream {
         return peoples;
     }
 
+
+    public static Map<String, List<People>> buildRecordMapBrief(List<People> records) {
+        return records.stream().collect(Collectors.groupingBy(
+                record -> buildRecordKey(record.getAge(), record.getSex())
+        ));
+    }
+
+    private static String buildRecordKey(int age, String sex) {
+        return age + "_" + sex;
+    }
+
     public static void main(String[] args) {
         Runnable r1 = () -> {
             System.out.println("say i'm a runnable");
@@ -87,11 +98,12 @@ public class Java8Stream {
             people.setMoney(i * 2);
             list.add(people);
         }
-        System.out.println(list);
-        list.sort(Comparator.comparing(People::getAge));
+        System.out.println(buildRecordMapBrief(list));
+       // System.out.println(list);
+        //list.sort(Comparator.comparing(People::getAge));
 
-        System.out.println(list);
-        System.out.println(j8.getTotalAge(list));
+       // System.out.println(list);
+        //System.out.println(j8.getTotalAge(list));
 
 //        System.out.println(j8.getPeopleNames(list));
 //
