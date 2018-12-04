@@ -25,7 +25,7 @@ public class Consumer {
         while (true) {
             Entry entry = null;
             try {
-                entry = SphU.entry("HelloWorld");
+                entry = SphU.entry("req limit num");
                 String hello = demoService.sayHello("world"); // call remote method
                 System.out.println(hello); // get result
 
