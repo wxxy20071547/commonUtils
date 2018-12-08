@@ -20,7 +20,6 @@
       <module name="dubbo-demo-api" target="1.5" />
       <module name="dubbo-demo-consumer" target="1.5" />
       <module name="dubbo-demo-provider" target="1.5" />
-      <module name="springRpc" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

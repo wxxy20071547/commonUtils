@@ -1,10 +1,12 @@
 package com.kevin.common.designMode.pcModel;
 
-import com.kevin.common.domain.People;
 import lombok.Data;
 
 import java.util.Objects;
-import java.util.concurrent.*;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingDeque;
 
 /**
  * Created by kevin on 2018/12/8.
@@ -25,6 +27,8 @@ public class DelayQueue<T> {
             public void run() {
                 T t;
                 try {
+
+
                     while (true) {
                         if (Objects.nonNull(t = queue.take())) {
                             System.out.println("Consumed " + t);
