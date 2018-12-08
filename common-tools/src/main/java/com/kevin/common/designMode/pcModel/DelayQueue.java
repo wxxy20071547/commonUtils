@@ -20,8 +20,6 @@ public class DelayQueue<T> {
 
     public void start() {
         queue = new LinkedBlockingDeque<T>();
-
-
         e.execute(new Runnable() {
             @Override
             public void run() {
