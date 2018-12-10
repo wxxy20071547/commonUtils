@@ -32,4 +32,5 @@
     local regular interface 本地测试，没有注册中心，直连方式-->
     <dubbo:reference id="demoService" check="false" interface="com.kevin.dubbo.demo.DemoService" url="dubbo://localhost:20880"/>
 
+
 </beans>

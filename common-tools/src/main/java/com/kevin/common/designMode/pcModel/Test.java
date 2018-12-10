@@ -10,7 +10,6 @@ public class Test {
     public static void main(String[] args) {
         DelayQueue<People> delayQueue = new DelayQueue<>();
         delayQueue.start();
-
         delayQueue.setDealService(new DealServiceImpl());
 
 
