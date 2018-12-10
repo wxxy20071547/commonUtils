@@ -18,7 +18,7 @@ public class Test {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 60; i++) {
                     People people = new People();
                     people.setName("tom" + i);
                     if (i % 2 == 0) {
@@ -28,6 +28,11 @@ public class Test {
                     }
                     people.setAge(4 - i);
                     people.setMoney(i * 2);
+                    try {
+                        Thread.sleep(10);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     delayQueue.add(people);
                 }
             }
@@ -37,7 +42,7 @@ public class Test {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 10; i++) {
+                for (int i = 0; i < 60; i++) {
                     People people = new People();
                     people.setName("jom" + i);
                     if (i % 2 == 0) {
