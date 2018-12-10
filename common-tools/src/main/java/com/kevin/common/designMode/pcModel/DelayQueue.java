@@ -14,7 +14,6 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 @Data
 public class DelayQueue<T> {
-
     private BlockingDeque<T> queue;
     private DealService<T> dealService;
     private final static ExecutorService e = Executors.newSingleThreadExecutor();
@@ -31,7 +30,7 @@ public class DelayQueue<T> {
                         queue.drainTo(list);
                         System.out.println(">>>>>>>>>>>>>list's size is "+ list.size());
                         list.forEach(t -> {
-                            System.out.println("Consumed " + t);
+                            dealService.deal(t);
                         });
 
                     }
