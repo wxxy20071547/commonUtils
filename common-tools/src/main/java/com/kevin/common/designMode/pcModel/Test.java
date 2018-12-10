@@ -29,7 +29,7 @@ public class Test {
                     people.setAge(4 - i);
                     people.setMoney(i * 2);
                     try {
-                        Thread.sleep(10);
+                        Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
