@@ -19,7 +19,7 @@ public class Test {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 60; i++) {
+                for (int i = 0; i < 600; i++) {
                     People people = new People();
                     people.setName("tom" + i);
                     if (i % 2 == 0) {
@@ -43,7 +43,7 @@ public class Test {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 60; i++) {
+                for (int i = 0; i < 600; i++) {
                     People people = new People();
                     people.setName("jom" + i);
                     if (i % 2 == 0) {

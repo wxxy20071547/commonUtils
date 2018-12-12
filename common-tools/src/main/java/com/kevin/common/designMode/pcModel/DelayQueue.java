@@ -35,9 +35,9 @@ public class DelayQueue<T> {
                             dealService.deal(t);
                         });
 
-                    } else {
+                    } else {//如果队列为空，延迟1秒
                         try {
-                            Thread.sleep(10);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e1) {
                             e1.printStackTrace();
                         }
