@@ -33,6 +33,12 @@ public class DelayQueue<T> {
                             dealService.deal(t);
                         });
 
+                    }else {
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
                     }
                 }
 
