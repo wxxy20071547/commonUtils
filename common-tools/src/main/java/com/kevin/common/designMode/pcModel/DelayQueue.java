@@ -16,10 +16,12 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class DelayQueue<T> {
     private BlockingDeque<T> queue;
     private DealService<T> dealService;
-    private final static ExecutorService e = Executors.newSingleThreadExecutor();
+    private  ExecutorService e;
+    private int nThreads  = 1;
 
 
     public void start() {
+        e = Executors.newFixedThreadPool(nThreads);
         queue = new LinkedBlockingDeque<T>();
         e.execute(new Runnable() {
             @Override
@@ -28,12 +30,12 @@ public class DelayQueue<T> {
                     if (queue.size() > 0) {
                         List<T> list = Lists.newArrayList();
                         queue.drainTo(list);
-                        System.out.println(">>>>>>>>>>>>>list's size is "+ list.size());
+                        System.out.println(Thread.currentThread().getName()+">>>>>>>>>>>>>list's size is " + list.size());
                         list.forEach(t -> {
                             dealService.deal(t);
                         });
 
-                    }else {
+                    } else {
                         try {
                             Thread.sleep(10);
                         } catch (InterruptedException e1) {
