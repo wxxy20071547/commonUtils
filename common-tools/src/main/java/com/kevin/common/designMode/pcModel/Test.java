@@ -9,7 +9,7 @@ public class Test {
 
     public static void main(String[] args) {
         DelayQueue<People> delayQueue = new DelayQueue<>();
-        delayQueue.setNThreads(2);
+        delayQueue.setQueueSize(10000);
         delayQueue.setDealService(new DealServiceImpl());
         delayQueue.start();
 

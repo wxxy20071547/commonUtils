@@ -4,10 +4,7 @@ import com.google.common.collect.Lists;
 import lombok.Data;
 
 import java.util.List;
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.*;
 
 /**
  * Created by kevin on 2018/12/8.
@@ -16,13 +13,14 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class DelayQueue<T> {
     private BlockingDeque<T> queue;
     private DealService<T> dealService;
-    private  ExecutorService e;
-    private int nThreads  = 1;
+    private ExecutorService e;
+    private int queueSize = 512;
 
 
     public void start() {
-        e = Executors.newFixedThreadPool(nThreads);
-        queue = new LinkedBlockingDeque<T>();
+        e = Executors.newSingleThreadExecutor();
+
+        queue = new LinkedBlockingDeque<T>(queueSize);
         e.execute(new Runnable() {
             @Override
             public void run() {
@@ -30,7 +28,7 @@ public class DelayQueue<T> {
                     if (queue.size() > 0) {
                         List<T> list = Lists.newArrayList();
                         queue.drainTo(list);
-                        System.out.println(Thread.currentThread().getName()+">>>>>>>>>>>>>list's size is " + list.size());
+                        System.out.println(Thread.currentThread().getName() + ">>>>>>>>>>>>>list's size is " + list.size());
                         list.forEach(t -> {
                             dealService.deal(t);
                         });
