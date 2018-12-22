@@ -1,16 +1,13 @@
 package com.kevin.common;
 
 
-import com.google.common.collect.Lists;
-
 import com.google.common.collect.Maps;
 import com.kevin.common.domain.People;
-
+import org.apache.commons.lang.StringUtils;
 import org.nutz.lang.Mirror;
 
-import java.io.BufferedInputStream;
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
 
@@ -32,6 +29,20 @@ public class Test {
 
 
     public static void main(String[] args) {
+
+        Map<String ,String > map = Maps.newHashMap();
+        map.put("1","1");
+        map.put("2","2");
+        map.put("1","2");
+        map.put("2","2");
+
+        map.forEach((key,value)->{
+      if (StringUtils.equals("1",value)){
+          return;
+      }
+
+            System.out.println(value);
+        });
 
 
         new Test();
@@ -59,7 +70,7 @@ public class Test {
             System.out.println(e.getMessage());
         }
         ReentrantLock reentrantLock = new ReentrantLock();
-        ConcurrentHashMap map = new ConcurrentHashMap();
+
 
 
 
