@@ -1,4 +1,4 @@
-package excel;
+package com.kevin.common.excel;
 
 import com.xuxueli.poi.excel.ExcelExportUtil;
 import com.xuxueli.poi.excel.ExcelImportUtil;

@@ -1,4 +1,4 @@
-package excel;
+package com.kevin.common.excel;
 
 import com.xuxueli.poi.excel.annotation.ExcelField;
 import com.xuxueli.poi.excel.annotation.ExcelSheet;
