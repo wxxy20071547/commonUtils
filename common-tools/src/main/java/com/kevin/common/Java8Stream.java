@@ -5,10 +5,7 @@ import com.kevin.common.domain.People;
 import lombok.Data;
 import org.apache.commons.lang.StringUtils;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -81,6 +78,28 @@ public class Java8Stream {
         ));
     }
 
+    public int addNumberArray(List<Integer> numbers) {
+        int result = numbers.stream().reduce(0, (subtotal, element) -> subtotal + element);
+        //int result = numbers.stream().reduce(0, Integer::sum);
+        return result;
+    }
+
+
+    public String jointStringArray(List<String> letters) {
+        String result = letters.stream().reduce("", (partialString, element) -> partialString + element);
+        //  String result = letters.stream().reduce("", String::concat);
+        //  String result = letters.stream().reduce("", (partialString, element) -> partialString.toUpperCase() + element.toUpperCase());
+        //  String result = letters.parallelStream().reduce("", String::concat);
+        return result;
+    }
+
+
+    public int sumAge(List<People> users) {
+        int result = users.stream().reduce(0, (partialAgeResult, user) -> partialAgeResult + user.getAge(), Integer::sum);
+        //int result = numbers.stream().reduce(0, Integer::sum);
+        return result;
+    }
+
     private static String buildRecordKey(int age, String sex) {
         return age + "_" + sex;
     }
@@ -121,5 +140,6 @@ public class Java8Stream {
 //        System.out.println(j8.groupBySex(list));
 //
 //        System.out.println(j8.getMaxAgeGroupBySex(list));
+
     }
 }

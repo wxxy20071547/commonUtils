@@ -20,6 +20,15 @@ public class People implements Serializable{
     private String sex;
     private int total;
 
+    public People(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public People() {
+
+    }
+
     public String doSomething(String name,String sex, int age){
         return MessageFormat.format("a people name :{0},sex :{1},age is {2}", name, sex, age);
     }
