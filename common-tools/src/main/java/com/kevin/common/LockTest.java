@@ -15,14 +15,14 @@ public class LockTest {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
-                System.out.println("thread="+ Thread.currentThread().getName());
+                System.out.println("thread=" + Thread.currentThread().getName());
             }
         });
 
         //获取公平锁
         ReentrantLock lock = new ReentrantLock(true);//ReentrantLock默认是不公平
 
-        try{
+        try {
             lock.lock();
             lock.tryLock();//没有超时间，底层还是不公平是实现
             lock.tryLock(500, TimeUnit.SECONDS);
@@ -31,7 +31,7 @@ public class LockTest {
             Condition a = lock.newCondition();
             a.await();
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
