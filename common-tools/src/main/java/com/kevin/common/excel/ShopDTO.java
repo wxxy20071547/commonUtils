@@ -14,6 +14,7 @@ import java.util.Date;
 /**
  * Created by kevin on 2019/1/26.
  */
+
 @Data
 @ToString
 @AllArgsConstructor
@@ -26,6 +27,9 @@ public class ShopDTO {
 
     @ExcelField(name = "商户名称", align = HorizontalAlignment.CENTER)
     private String shopName;
+
+    @ExcelField(name = "别名")
+    private String shopNameAlias;
 
     @ExcelField(name = "分店数量")
     private short branchNum;
@@ -44,6 +48,20 @@ public class ShopDTO {
 
     @ExcelField(name = "开店时间", dateformat = "yyyy-MM-dd HH:mm:ss")
     private Date addTime;
+
+    public ShopDTO(boolean vip, String shopName, short branchNum, int shopId, long visitNum, float turnover, double totalTurnover, Date addTime) {
+        this.vip = vip;
+        this.shopName = shopName;
+        this.shopNameAlias="统一";
+        this.branchNum = branchNum;
+        this.shopId = shopId;
+        this.visitNum = visitNum;
+        this.turnover = turnover;
+        this.totalTurnover = totalTurnover;
+        this.addTime =addTime;
+
+    }
+
 
 
 }
