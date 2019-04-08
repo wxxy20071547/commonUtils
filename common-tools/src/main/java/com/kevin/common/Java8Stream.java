@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by kevin on 2017/11/29.
@@ -34,7 +35,6 @@ public class Java8Stream {
     public Map<String, People> getPeopleMapByName(List<People> peoples) {
         return peoples.parallelStream().collect(Collectors.toMap(People::getName, Function.identity()));
     }
-
 
     public int getTotalAge(List<People> peoples) {
         return peoples.stream().mapToInt(People::getAge).sum();
@@ -100,6 +100,48 @@ public class Java8Stream {
         return result;
     }
 
+    private Map<Integer, String> filterMap(Map<Integer, String> map, String filterName) {
+        Map<Integer, String> collect = map.entrySet().stream()
+                .filter(x -> filterName.equals(x.getValue()))
+                .collect(Collectors.toMap(x -> x.getKey(), x -> x.getValue()));
+
+        // or like this
+        //  Map<Integer, String> collect = map.entrySet().stream()
+        //                .filter(x -> filterName.equals(x.getValue()))
+        //                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+
+        //Map -> Stream -> Filter -> String
+        String result = map.entrySet().stream()
+                .filter(x -> filterName.equals(x.getValue()))
+                .map(x->x.getValue())
+                .collect(Collectors.joining(","));
+
+        System.out.println(result);
+
+        return collect;
+    }
+
+
+    //多个集合合成一个
+    private static void testFlatMap(){
+        String[][] data = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
+
+        //Stream<String[]>
+        Stream<String[]> temp = Arrays.stream(data);
+
+        //Stream<String>, GOOD!
+        Stream<String> stringStream = temp.flatMap(x -> Arrays.stream(x));
+
+
+        //Stream<String> stream = stringStream.filter(x -> "a".equals(x.toString()));
+
+        stringStream.forEach(System.out::println);
+
+    }
+
+
+
+
     private static String buildRecordKey(int age, String sex) {
         return age + "_" + sex;
     }
@@ -140,6 +182,15 @@ public class Java8Stream {
 //        System.out.println(j8.groupBySex(list));
 //
 //        System.out.println(j8.getMaxAgeGroupBySex(list));
+
+
+//        Map<Integer, String> map = new HashMap<>();
+//        map.put(1, "linode.com");
+//        map.put(2, "heroku.com");
+//        map.put(3, "heroku.com");
+//        System.out.println(j8.filterMap(map, "heroku.com"));
+
+
 
     }
 }
