@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
 
 public class ZkLock {
 
-    private String zkQurom = "10.42.60.140:2181";
+    private String zkQurom = "zk.zookeeper:2181";
     private String lockName = "/kevinLock";
     private String lockZnode = null;
     private ZooKeeper zk;
