@@ -10,7 +10,6 @@
     <version>1.0</version>
     <modules>
         <module>common-tools</module>
-        <module>dubbo-demo</module>
     </modules>
 
 
