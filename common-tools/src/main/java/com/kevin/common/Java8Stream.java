@@ -33,7 +33,8 @@ public class Java8Stream {
     }
 
     public Map<String, People> getPeopleMapByName(List<People> peoples) {
-        return peoples.parallelStream().collect(Collectors.toMap(People::getName, Function.identity()));
+        return peoples.parallelStream().collect(Collectors.toMap(People::getName, Function.identity(), (newValue, oldValue) -> newValue));
+
     }
 
     public int getTotalAge(List<People> peoples) {
@@ -113,7 +114,7 @@ public class Java8Stream {
         //Map -> Stream -> Filter -> String
         String result = map.entrySet().stream()
                 .filter(x -> filterName.equals(x.getValue()))
-                .map(x->x.getValue())
+                .map(x -> x.getValue())
                 .collect(Collectors.joining(","));
 
         System.out.println(result);
@@ -123,7 +124,7 @@ public class Java8Stream {
 
 
     //多个集合合成一个
-    private static void testFlatMap(){
+    private static void testFlatMap() {
         String[][] data = new String[][]{{"a", "b"}, {"c", "d"}, {"e", "f"}};
 
         //Stream<String[]>
@@ -138,8 +139,6 @@ public class Java8Stream {
         stringStream.forEach(System.out::println);
 
     }
-
-
 
 
     private static String buildRecordKey(int age, String sex) {
@@ -189,7 +188,6 @@ public class Java8Stream {
 //        map.put(2, "heroku.com");
 //        map.put(3, "heroku.com");
 //        System.out.println(j8.filterMap(map, "heroku.com"));
-
 
 
     }
