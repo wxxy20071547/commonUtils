@@ -3,13 +3,13 @@ package com.kevin.common.lock;
 /**
  * @author kevin
  * @date 2019-05-05 14:33
- *
- *  javap -c SynLock  javap –verbose SynLock 可以查看字节码
+ * <p>
+ * javap -c SynLock  javap –verbose SynLock 可以查看字节码
  */
 public class SynLock {
 
-    public  void test() {
-        synchronized (this){
+    public void test() {
+        synchronized (this) {
             System.out.println();
         }
 
@@ -18,6 +18,10 @@ public class SynLock {
 
 
     public static void main(String[] args) {
-        new SynLock().test();
+        int count = 7;
+        int j = count++;
+        System.out.println(j);
+        System.out.println(count);
+
     }
 }
