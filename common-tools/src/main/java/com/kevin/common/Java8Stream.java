@@ -34,6 +34,7 @@ public class Java8Stream {
 
     public Map<String, People> getPeopleMapByName(List<People> peoples) {
         return peoples.parallelStream().collect(Collectors.toMap(People::getName, Function.identity(), (newValue, oldValue) -> newValue));
+        //return peoples.parallelStream().collect(Collectors.toMap(People::getName, Function.identity());
 
     }
 
