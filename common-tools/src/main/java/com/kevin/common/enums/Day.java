@@ -70,7 +70,7 @@ public enum Day {
 
     public static void main(String[] args) {
         Day day = Day.FRIDAY;
-        System.out.println(day.getValue());
+        System.out.println(day.getNext().getValue());
     }
 
 
