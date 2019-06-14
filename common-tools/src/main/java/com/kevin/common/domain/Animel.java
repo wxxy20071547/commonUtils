@@ -68,7 +68,7 @@ public class Animel {
              * name : Rufus
              * breed : labrador
              * count : 1
-             * twoFeet : false
+             * twoFeet : falsecarrierUse.getName()
              */
 
             private String name;
