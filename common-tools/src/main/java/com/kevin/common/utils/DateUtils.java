@@ -10,16 +10,16 @@ import java.util.*;
  */
 public class DateUtils {
 
-    private final static String  FULL_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private final static String FULL_FORMAT_PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-    private final static String  PART_FORMAT_PATTERN = "yyyy-MM-dd";
+    private final static String PART_FORMAT_PATTERN = "yyyy-MM-dd";
 
 
     public static String seconds2Date(Integer seconds) {
-        return seconds2Date(seconds,null);
+        return seconds2Date(seconds, null);
     }
 
-    public static String seconds2Date(Integer seconds , String formatPattern) {
+    public static String seconds2Date(Integer seconds, String formatPattern) {
         if (seconds == null) {
             return "";
         }
@@ -29,14 +29,21 @@ public class DateUtils {
     }
 
     public static String formatDateTime(Integer totalSeconds) {
-        if (Objects.isNull(totalSeconds)){
+
+        if (Objects.isNull(totalSeconds)) {
             return "";
         }
         StringBuffer dateTimes = new StringBuffer();
 
+
+        int days = totalSeconds / (60 * 60 * 24);
         int hours = (totalSeconds % (60 * 60 * 24)) / (60 * 60);
         int minutes = (totalSeconds % (60 * 60)) / 60;
         int seconds = totalSeconds % 60;
+        if (days > 0) {
+            dateTimes.append(days + "天");
+        }
+
         if (hours > 0) {
             dateTimes.append(hours + "小时");
         }
@@ -72,8 +79,8 @@ public class DateUtils {
     }
 
 
-    public static int getCurrentHours(){
-        Calendar calendar  = Calendar.getInstance();
+    public static int getCurrentHours() {
+        Calendar calendar = Calendar.getInstance();
         return calendar.get(Calendar.HOUR_OF_DAY);
     }
 
@@ -192,7 +199,7 @@ public class DateUtils {
     /**
      * 给指定日期增加月份数
      *
-     * @param date 指定日期 @see Date
+     * @param date   指定日期 @see Date
      * @param months 增加的月份数
      * @return 增加月份后的日期
      */
