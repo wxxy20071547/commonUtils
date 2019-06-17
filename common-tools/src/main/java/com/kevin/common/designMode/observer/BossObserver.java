@@ -13,8 +13,8 @@ public class BossObserver extends Observable {
     private String info;
 
     public void setWork(String info) {
-        this.info=info;
-        System.out.println("布置的工作是"+info);
+        this.info = info;
+        System.out.println("布置的工作是" + info);
         setChanged();
         notifyObservers();
     }
