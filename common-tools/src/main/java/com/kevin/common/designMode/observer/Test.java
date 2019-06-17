@@ -6,14 +6,14 @@ package com.kevin.common.designMode.observer;
  */
 public class Test {
     public static void main(String[] args) {
-        BossObserver teacher = new BossObserver();
-        WorkerObserver zhangSan = new WorkerObserver("张三", teacher);
-        WorkerObserver LiSi = new WorkerObserver("李四", teacher);
-        WorkerObserver WangWu = new WorkerObserver("王五", teacher);
+        BossObserver boss = new BossObserver();
+        WorkerObserver zhangSan = new WorkerObserver("张三", boss);
+        WorkerObserver LiSi = new WorkerObserver("李四", boss);
+        WorkerObserver WangWu = new WorkerObserver("王五", boss);
 
-        teacher.setWork("画图");
-        teacher.setWork("准备材料");
-        teacher.setWork("制作");
+        boss.setWork("画图");
+        boss.setWork("准备材料");
+        boss.setWork("制作");
 
     }
 }
