@@ -20,7 +20,10 @@ public class ModifyClassTest {
 
         //add method
         CtMethod xmove = CtNewMethod.make(
-                "public void xmove(int dx) { System.out.println(dx);}",
+                "  public void xMove(int x) {\n" +
+                        "        int y = x + 10;\n" +
+                        "        System.out.println(\"xMove the x:\" + x + \"y:\" + y);\n" +
+                        "    }",
                 pointClass);
         pointClass.addMethod(xmove);
 
@@ -32,10 +35,12 @@ public class ModifyClassTest {
         // pointClass.writeFile();
         Object codeClass = pointClass.toClass().newInstance(); // 这里不写入文件，直接实例化
         Method setName = codeClass.getClass().getMethod("move", int.class, int.class);
-        Method xmoveMethod = codeClass.getClass().getMethod("xmove", int.class);
+        Method xmoveMethod = codeClass.getClass().getMethod("xMove", int.class);
         setName.invoke(codeClass, 1, 2);
         xmoveMethod.invoke(codeClass, 1);
     }
+
+
 
 
 }
