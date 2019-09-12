@@ -3,6 +3,7 @@ package com.kevin.common;
 
 import com.google.common.collect.Maps;
 import com.kevin.common.domain.People;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.nutz.lang.Mirror;
 
@@ -30,16 +31,24 @@ public class Test {
 
     public static void main(String[] args) {
 
-        Map<String ,String > map = Maps.newHashMap();
-        map.put("1","1");
-        map.put("2","2");
-        map.put("1","2");
-        map.put("2","2");
+        System.out.println(DigestUtils.md5Hex("浙A6D2Q9"));
+        System.out.println(DigestUtils.md5Hex("浙A6D2Q2"));
+        System.out.println(DigestUtils.md5Hex("浙A6D2Q8"));
+        System.out.println(DigestUtils.md5Hex("浙A6D2Q0"));
+        System.out.println(DigestUtils.md5Hex("浙A6D2Q9"));
 
-        map.forEach((key,value)->{
-      if (StringUtils.equals("1",value)){
-          return;
-      }
+
+
+        Map<String, String> map = Maps.newHashMap();
+        map.put("1", "1");
+        map.put("2", "2");
+        map.put("1", "2");
+        map.put("2", "2");
+
+        map.forEach((key, value) -> {
+            if (StringUtils.equals("1", value)) {
+                return;
+            }
 
             System.out.println(value);
         });
@@ -70,9 +79,6 @@ public class Test {
             System.out.println(e.getMessage());
         }
         ReentrantLock reentrantLock = new ReentrantLock();
-
-
-
 
 
         for (int i, j, k; ; ) {

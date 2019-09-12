@@ -8,7 +8,7 @@ import java.util.concurrent.Semaphore;
  */
 public class SemaphoreTest {
 
-    private static Semaphore semaphore = new Semaphore(100);
+    private static Semaphore semaphore = new Semaphore(0);
 
     public static Integer methodA() {
         Integer result = null;
@@ -23,4 +23,10 @@ public class SemaphoreTest {
             semaphore.release();
         }
     }
+
+    public static void main(String[] args) {
+        methodA();
+    }
+
+
 }
