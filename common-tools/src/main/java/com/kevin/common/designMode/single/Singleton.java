@@ -4,6 +4,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * 不用synchronized和lock能实现线程安全的单例
+ *
  * @author kevin
  * @date 2019-09-12 16:15
  */
