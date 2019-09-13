@@ -1,4 +1,4 @@
-package com.kevin.common.javassist;
+package com.kevin.common.proxy.javassist;
 
 import javassist.ClassPool;
 import javassist.CtClass;
@@ -16,7 +16,7 @@ public class ModifyClassTest {
     public static void main(String[] args) throws Exception {
 
         ClassPool pool = ClassPool.getDefault();
-        CtClass pointClass = pool.get("com.kevin.common.javassist.Point");
+        CtClass pointClass = pool.get("Point");
 
         //add method
         CtMethod xmove = CtNewMethod.make(
@@ -30,8 +30,8 @@ public class ModifyClassTest {
 
         //modify  exist method
         CtMethod m = pointClass.getDeclaredMethod("move");
-        m.insertBefore("org.slf4j.LoggerFactory.getLogger(com.kevin.common.javassist.Point.class).info(\"--开始打印\");");
-        m.insertAfter("org.slf4j.LoggerFactory.getLogger(com.kevin.common.javassist.Point.class).info(\"--打印完成\");");
+        m.insertBefore("org.slf4j.LoggerFactory.getLogger(Point.class).info(\"--开始打印\");");
+        m.insertAfter("org.slf4j.LoggerFactory.getLogger(Point.class).info(\"--打印完成\");");
         // pointClass.writeFile();
         Object codeClass = pointClass.toClass().newInstance(); // 这里不写入文件，直接实例化
         Method setName = codeClass.getClass().getMethod("move", int.class, int.class);

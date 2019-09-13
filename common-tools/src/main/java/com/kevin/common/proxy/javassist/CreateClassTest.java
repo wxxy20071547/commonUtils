@@ -1,4 +1,4 @@
-package com.kevin.common.javassist;
+package com.kevin.common.proxy.javassist;
 
 import javassist.*;
 

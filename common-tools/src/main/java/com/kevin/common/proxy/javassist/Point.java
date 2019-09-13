@@ -1,4 +1,4 @@
-package com.kevin.common.javassist;
+package com.kevin.common.proxy.javassist;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,5 +1,7 @@
 package com.kevin.common.designMode.single;
 
+import sun.misc.Unsafe;
+
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
