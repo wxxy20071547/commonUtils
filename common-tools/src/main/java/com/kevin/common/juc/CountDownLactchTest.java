@@ -4,6 +4,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 减法
+ */
 public class CountDownLactchTest implements Runnable {
     static final CountDownLatch latch = new CountDownLatch(5);//count 必须大于线程数
     static final CountDownLactchTest test = new CountDownLactchTest();
