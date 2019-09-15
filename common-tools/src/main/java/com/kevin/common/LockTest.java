@@ -10,8 +10,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class LockTest {
 
     public static void main(String[] args) {
-
-        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        int cpuNum = Runtime.getRuntime().availableProcessors();// 获取机器CPU个数
+        ExecutorService executorService = Executors.newFixedThreadPool(cpuNum + 1);
         executorService.submit(new Runnable() {
             @Override
             public void run() {
