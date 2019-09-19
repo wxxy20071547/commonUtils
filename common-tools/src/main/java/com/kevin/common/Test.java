@@ -8,7 +8,10 @@ import org.apache.commons.lang.StringUtils;
 import org.nutz.lang.Mirror;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
 
@@ -58,6 +61,8 @@ public class Test {
 
 
         Map cMap = Maps.newHashMap();
+        List list = new CopyOnWriteArrayList();
+        Map currentMap = new ConcurrentHashMap();
         cMap.put(null, null);
         People people = new People();
         Mirror peopleMirror = Mirror.me(people);
