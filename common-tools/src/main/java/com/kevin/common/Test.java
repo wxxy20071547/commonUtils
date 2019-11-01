@@ -88,8 +88,7 @@ public class Test {
 
         for (int i, j, k; ; ) {
             System.out.println("is a fool");
-            System.out.println("is a fool 1 2 ");
-            System.out.println("is a fool 1 2 3 ");
+            System.out.println("is a fool 1 2 ")
         }
 
     }
