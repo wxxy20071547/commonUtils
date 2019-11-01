@@ -15,6 +15,7 @@ public class LockTest {
         executorService.submit(new Runnable() {
             @Override
             public void run() {
+                //do something
                 System.out.println("thread=" + Thread.currentThread().getName());
             }
         });
