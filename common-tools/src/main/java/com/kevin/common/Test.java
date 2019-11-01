@@ -87,7 +87,7 @@ public class Test {
 
 
         for (int i, j, k; ; ) {
-
+            System.out.println("is a fool");
         }
 
     }
