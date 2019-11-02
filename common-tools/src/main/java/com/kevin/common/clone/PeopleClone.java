@@ -42,7 +42,7 @@ public class PeopleClone implements Serializable{
         System.out.println(p);
         System.out.println(p3);
         System.out.println("--------windcoder.com----------");
-        p3.setName("小明克隆人ing");
+        p3.setName("小明克隆人ingtttt");
         p3.setAge(12);
         p3.getAddress().setProvince("浙江clone");
         System.out.println(p);
