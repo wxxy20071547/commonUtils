@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Point {
 
-
     public void move(int x, int y) {
         log.info("begin move x:{},y:{}", x, y);
     }

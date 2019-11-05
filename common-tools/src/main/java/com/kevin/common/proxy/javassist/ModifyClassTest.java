@@ -1,11 +1,11 @@
 package com.kevin.common.proxy.javassist;
 
+import java.lang.reflect.Method;
+
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.CtNewMethod;
-
-import java.lang.reflect.Method;
 
 /**
  * @author kevin
@@ -18,17 +18,12 @@ public class ModifyClassTest {
         ClassPool pool = ClassPool.getDefault();
         CtClass pointClass = pool.get("Point");
 
-        //add method
-        CtMethod xmove = CtNewMethod.make(
-                "  public void xMove(int x) {\n" +
-                        "        int y = x + 10;\n" +
-                        "        System.out.println(\"xMove the x:\" + x + \"y:\" + y);\n" +
-                        "    }",
-                pointClass);
+        // add method
+        CtMethod xmove = CtNewMethod.make("  public void xMove(int x) {\n" + "        int y = x + 10;\n"
+            + "        System.out.println(\"xMove the x:\" + x + \"y:\" + y);\n" + "    }", pointClass);
         pointClass.addMethod(xmove);
 
-
-        //modify  exist method
+        // modify exist method
         CtMethod m = pointClass.getDeclaredMethod("move");
         m.insertBefore("org.slf4j.LoggerFactory.getLogger(Point.class).info(\"--开始打印\");");
         m.insertAfter("org.slf4j.LoggerFactory.getLogger(Point.class).info(\"--打印完成\");");
@@ -39,8 +34,5 @@ public class ModifyClassTest {
         setName.invoke(codeClass, 1, 2);
         xmoveMethod.invoke(codeClass, 1);
     }
-
-
-
 
 }

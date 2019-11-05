@@ -1,18 +1,19 @@
 package com.kevin.common.domain;
 
-import lombok.Data;
-import lombok.ToString;
-import org.apache.commons.lang.StringUtils;
-
 import java.io.Serializable;
 import java.text.MessageFormat;
+
+import org.apache.commons.lang.StringUtils;
+
+import lombok.Data;
+import lombok.ToString;
 
 /**
  * Created by kevin on 2017/11/29.
  */
 @Data
 @ToString
-public class People implements Serializable{
+public class People implements Serializable {
     private String name;
     private int age;
     private int money;
@@ -29,16 +30,16 @@ public class People implements Serializable{
 
     }
 
-    public String doSomething(String name,String sex, int age){
+    public String doSomething(String name, String sex, int age) {
         return MessageFormat.format("a people name :{0},sex :{1},age is {2}", name, sex, age);
     }
 
-    public People sum(People p){
-        if (StringUtils.isBlank(sex)){
+    public People sum(People p) {
+        if (StringUtils.isBlank(sex)) {
             this.sex = p.getSex();
         }
 
-        if (StringUtils.isBlank(name)){
+        if (StringUtils.isBlank(name)) {
             this.name = p.name;
         }
 

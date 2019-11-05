@@ -10,14 +10,17 @@ public class JdkProxyFactory extends AbstractProxyFactory implements InvocationH
 
     public Object createProxyIntance(Object targetObject) {
         this.targetObject = targetObject;
-        return Proxy.newProxyInstance(this.targetObject.getClass().getClassLoader()
-                , this.targetObject.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance(this.targetObject.getClass().getClassLoader(),
+            this.targetObject.getClass().getInterfaces(), this);
     }
 
     /**
-     * @param proxy  指代理的类 如：com.kevin.common.proxy.impl.PeopleServiceImpl
-     * @param method 指代理类的方法 如：public abstract void com.kevin.common.proxy.service.PeopleService.say(java.lang.String)
-     * @param args   指参数 如：jdk proxy is ok
+     * @param proxy
+     *            指代理的类 如：com.kevin.common.proxy.impl.PeopleServiceImpl
+     * @param method
+     *            指代理类的方法 如：public abstract void com.kevin.common.proxy.service.PeopleService.say(java.lang.String)
+     * @param args
+     *            指参数 如：jdk proxy is ok
      * @return
      * @throws Throwable
      */
